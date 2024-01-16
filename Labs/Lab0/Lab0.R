@@ -31,5 +31,5 @@ mean(Auto$weight)
 median((Auto$weight))
 
 data1 <- read.csv(file.choose(),header=T)
-summary(data1)
-boxplot(data1)
+summary(data1$EPI)
+boxplot(data1$EPI)
