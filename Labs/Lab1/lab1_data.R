@@ -115,6 +115,26 @@ hist(Eland, seq(30., 95., 1.0), prob=TRUE)
 
 
 
-#other data
-#GRUMP_data <- read.csv(”<path>/GPW3_GRUMP_SummaryInformation_2010.csv")
 
+
+
+#other data
+GRUMP_data <- read.csv("C:/Users/chend17/Downloads/DataAnalytics/DataAnalytics2024_DANIEL_CHEN/Labs/GPW3_GRUMP_SummaryInformation_2010.csv")
+#View(GRUMP_data)
+meanArea <- GRUMP_data$Mean.Extent..sq.km.
+meanArea <- as.numeric(meanArea)
+mask <- is.na(meanArea)
+meanArea <- meanArea[!mask]
+meanArea
+
+summary(meanArea)
+fivenum(meanArea, na.rm=True)
+stem(meanArea)
+
+hist(meanArea)
+
+plot(ecdf(meanArea), do.points=FALSE, verticals=TRUE)
+
+par(pty="s")
+qqnorm(meanArea)
+qqline(meanArea)
