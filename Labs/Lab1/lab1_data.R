@@ -138,3 +138,24 @@ plot(ecdf(meanArea), do.points=FALSE, verticals=TRUE)
 par(pty="s")
 qqnorm(meanArea)
 qqline(meanArea)
+
+
+WATER_data <- read.csv("C:/Users/chend17/Downloads/DataAnalytics/DataAnalytics2024_DANIEL_CHEN/Labs/water-treatment.csv")
+#View(WATER_data)
+QE <- WATER_data$Q.E
+QE <- as.numeric(QE)
+mask <- is.na(QE)
+QE <- QE[!mask]
+QE
+
+summary(QE)
+fivenum(QE, na.rm=True)
+stem(QE)
+
+hist(QE)
+
+plot(ecdf(QE), do.points=FALSE, verticals=TRUE)
+
+par(pty="s")
+qqnorm(QE)
+qqline(QE)
