@@ -147,7 +147,7 @@ QE <- as.numeric(QE)
 mask <- is.na(QE)
 QE <- QE[!mask]
 QE
- 
+
 summary(QE)
 fivenum(QE, na.rm=True)
 stem(QE)
