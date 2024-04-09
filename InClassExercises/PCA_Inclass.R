@@ -56,7 +56,7 @@ pve
 # wine_data <- read.table("http://archive.ics.uci.edu/dataset/109/wine/wine.data", sep = ",")
 wine_data <- read.csv("C:/Users/danie/Documents/DataAnalytics2024_DANIEL_CHEN/InClassExercises/wine.data")
 head(wine_data)
-nrow(wine_data) 
+nrow(wine_data)
 colnames(wine_data) <- c("Cvs", "Alcohol",
                          "Malic_Acid", "Ash", "Alkalinity_of_Ash",
                          "Magnesium", "Total_Phenols", "Flavanoids", "NonFlavanoid_Phenols",
@@ -64,6 +64,11 @@ colnames(wine_data) <- c("Cvs", "Alcohol",
                          "Proline")
 head(wine_data)
 heatmap(cor(wine_data),Rowv = NA, Colv = NA)
+heatmap(cor(wine_data),Colv=NA, Rowv=NA, scale="none")
+
+principal_components <- princomp(wine_data, cor = TRUE, score = TRUE)
+summary(principal_components)
+
 cultivar_classes <- factor(wine_data$Cvs)
 cultivar_classes
 wine_data_PCA <- prcomp(scale(wine_data[,-1]))
